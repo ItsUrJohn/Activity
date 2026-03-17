@@ -1,22 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Page</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+header{
+    background:#333;
+    color:white;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+}
+
+nav a:hover{
+    color:yellow;
+}
+
+/* Search bar */
+.search-box input{
+    padding:5px;
+}
+
+/* Hero */
+.hero{
+    text-align:center;
+    padding:80px;
+    background:linear-gradient(to right,#4facfe,#00f2fe);
+    color:white;
+}
+
+.hero button{
+    padding:10px 20px;
+    border:none;
+    background:#fff;
+    color:#333;
+    cursor:pointer;
+}
+
+/* Cards */
+.content{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding:40px;
+}
+
+.card{
+    background:#f4f4f4;
+    padding:20px;
+    width:200px;
+    text-align:center;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.05);
+}
+
+/* Contact form */
+.contact{
+    padding:40px;
+    text-align:center;
+    background:#eee;
+}
+
+.contact input,
+.contact textarea{
+    width:60%;
+    padding:10px;
+    margin:10px 0;
+}
+
+.contact button{
+    padding:10px 20px;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:20px;
+    background:#333;
+    color:white;
+}
+
+/* Back to top button */
+#topBtn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    padding:10px 15px;
+    border:none;
+    background:#333;
+    color:white;
+    cursor:pointer;
+    display:none;
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
     <h1>My Website</h1>
+
     <nav>
         <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
     </nav>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search...">
+    </div>
 </header>
 
 <section class="hero">
@@ -25,7 +139,7 @@
     <button>Learn More</button>
 </section>
 
-<section class="content">
+<section class="content" id="services">
     <div class="card">
         <h3>Fast</h3>
         <p>Our website loads quickly and smoothly.</p>
@@ -42,9 +156,40 @@
     </div>
 </section>
 
+<!-- New Contact Section -->
+<section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <input type="text" placeholder="Your Name"><br>
+    <input type="email" placeholder="Your Email"><br>
+    <textarea rows="5" placeholder="Your Message"></textarea><br>
+    <button>Send Message</button>
+</section>
+
 <footer>
     <p>© 2026 My Website</p>
 </footer>
+
+<button onclick="topFunction()" id="topBtn">↑ Top</button>
+
+<script>
+
+/* Back to top button */
+let topBtn = document.getElementById("topBtn");
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+};
+
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+</script>
 
 </body>
 </html>
